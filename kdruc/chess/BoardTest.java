@@ -10,10 +10,38 @@ import static org.junit.Assert.*;
 public class BoardTest {
 
 	@Test
-	public void testBoardToString() throws IllegalMoveException {
+	public void testEmptyBoardToString() {
 		// ARRANGE
-		Board board = new Board();
-		String emptyBoard = " ╔═╤═╤═╤═╤═╤═╤═╤═╗\n" +
+		Board board = Board.getEmptyBoard();
+		String fullBoard = " ╔═╤═╤═╤═╤═╤═╤═╤═╗\n" +
+						"8║ │░│ │░│ │░│ │░║\n" +
+						" ╟─┼─┼─┼─┼─┼─┼─┼─╢\n" +
+						"7║░│ │░│ │░│ │░│ ║\n" +
+						" ╟─┼─┼─┼─┼─┼─┼─┼─╢\n" +
+						"6║ │░│ │░│ │░│ │░║\n" +
+						" ╟─┼─┼─┼─┼─┼─┼─┼─╢\n" +
+						"5║░│ │░│ │░│ │░│ ║\n" +
+						" ╟─┼─┼─┼─┼─┼─┼─┼─╢\n" +
+						"4║ │░│ │░│ │░│ │░║\n" +
+						" ╟─┼─┼─┼─┼─┼─┼─┼─╢\n" +
+						"3║░│ │░│ │░│ │░│ ║\n" +
+						" ╟─┼─┼─┼─┼─┼─┼─┼─╢\n" +
+						"2║ │░│ │░│ │░│ │░║\n" +
+						" ╟─┼─┼─┼─┼─┼─┼─┼─╢\n" +
+						"1║░│ │░│ │░│ │░│ ║\n" +
+						" ╚═╧═╧═╧═╧═╧═╧═╧═╝\n" +
+						"  a b c d e f g h";
+		// ACT
+		String boardToString = board.toString();
+		// ASSERT
+		assertEquals(fullBoard, boardToString);
+	}
+
+	@Test
+	public void testFullBoardToString() throws IllegalMoveException {
+		// ARRANGE
+		Board board = Board.getFullBoard();
+		String fullBoard = " ╔═╤═╤═╤═╤═╤═╤═╤═╗\n" +
 						"8║♜│♞│♝│♛│♚│♝│♞│♜║\n" +
 						" ╟─┼─┼─┼─┼─┼─┼─┼─╢\n" +
 						"7║♟│♟│♟│♟│♟│♟│♟│♟║\n" +
@@ -34,7 +62,7 @@ public class BoardTest {
 		// ACT
 		String boardToString = board.toString();
 		// ASSERT
-		assertEquals(emptyBoard, boardToString);
+		assertEquals(fullBoard, boardToString);
 	}
 
 }
